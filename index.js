@@ -91,14 +91,16 @@ sayilar.forEach(function(sayi) {
   }
 });
 console.log(ucetambolunenler);
+////
 ucebolunenlerintoplami = ucetambolunenler.reduce((a,b)=> a+b, 0);
 console.log(ucebolunenlerintoplami);
 ///////
 besyuzdenkucuksayilar = sayilar.filter(a=> a<500);
 console.log(besyuzdenkucuksayilar);
+//////
 siralisayilar =  besyuzdenkucuksayilar.sort(function(a, b){return a - b});
 console.log(siralisayilar);
-///////
+/*
 tekraredensayilar = sayilar.reduce((a,b) => {
         if (b in a  ){
 			a[b]++
@@ -109,7 +111,31 @@ tekraredensayilar = sayilar.reduce((a,b) => {
 return a;
 } , {});
 console.log(tekraredensayilar);
-/////
+*/
+let tekrarlar = {};
+
+// tekrarları hesapla
+for (let i = 0; i < sayilar.length; i++) {
+	let sayi = sayilar[i];
+	if (tekrarlar[sayi]) {
+	  tekrarlar[sayi]++;
+	} else {
+	  tekrarlar[sayi] = 1;
+	}
+  }
+
+ tekraredensayilar = [];
+
+// tekrar eden sayıları string olarak ekle
+for (let sayi in tekrarlar) {
+  if (tekrarlar[sayi] > 1) {
+    let string = sayi + " sayısı " + tekrarlar[sayi] + " kere tekrar edilmiştir";
+    tekraredensayilar.push(string);
+  }
+}
+
+console.log(tekraredensayilar);
+
 
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
