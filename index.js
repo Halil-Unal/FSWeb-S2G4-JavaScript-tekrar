@@ -117,7 +117,7 @@ let tekrarlar = {};
 // tekrarları hesapla
 for (let i = 0; i < sayilar.length; i++) {
 	let sayi = sayilar[i];
-	if (tekrarlar[sayi]) {
+	if (sayilar[i] = tekrarlar[sayi]) {
 	  tekrarlar[sayi]++;
 	} else {
 	  tekrarlar[sayi] = 1;
