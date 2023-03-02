@@ -16,7 +16,7 @@ var sayilar = [45,856,12.5,63,0.02,154,2,54,78,61.7,654,26,12.5,63,969,152,32,31
 function KareninAlani(kenaruzunlugu){
 	return kenaruzunlugu*kenaruzunlugu;
 }
-
+console.log(KareninAlani(10));
 /* (Oto test yok) Yukarıdaki KareninAlani fonksiyonunu kenar uzunluğu = 10 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
 
@@ -29,10 +29,11 @@ function KareninAlani(kenaruzunlugu){
 			4. Hesaplanan çemberin çevresi döndürülecektir.
 		*/
 
-function CemberinCevresi(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinCevresi(yarıcap)
+{
+	return 2*yarıcap*pi;
 }
-
+console.log(CemberinCevresi(4));
 
 /* (Oto test yok) Yukarıdaki CemberinCevresi fonksiyonunu yarıçap = 5 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -47,10 +48,11 @@ function CemberinCevresi(/* kodlar buraya */){
 			4. Hesaplanan çemberin alanı döndürülecektir.
 		*/
 		
-function CemberinAlani(/* kodlar buraya */){
-	/* kodlar buraya */
+function CemberinAlani(yarıcap2,pi1){
+	
+	return   pi1*Math.pow(yarıcap2,2);
 }
-
+console.log(CemberinAlani(4,pi));
 
 /* (Oto test yok) Yukarıdaki CemberinAlani fonksiyonunu yarıçap = 15 vererek aşağıda çalıştırıp, sonucu konsolda gözlemleyin (console.log)  */
 
@@ -67,8 +69,48 @@ function CemberinAlani(/* kodlar buraya */){
 			ÖRNEK: sayilar dizisi içerisinde 45 sayısı 3 kere yazılmış. "45 sayısı 3 tekrar edilmiştir" stringini `tekraredensayilar` dizisine aktaracağız.
 			💡 İPUCU: Tekrar edilen sayıları ve kaç kere tekrar edildiğini kaydetmek için bir nesne tanımlamalısınız, bu görevi yapabilmek için en az 2 kere döngü yazmalısınız. Birinci döngüde hangi sayının kaç kere tekrar edildiğini tespit edip, 2. döngüde stringi oluşturup verilen diziye aktarmalısınız.
 	*/
-	
-	
+
+	enbuyuk = sayilar[0];
+	enkucuk = sayilar[0];
+	for (let i=1;i<sayilar.length;i++){
+    if (sayilar[i]>enbuyuk){
+		enbuyuk=sayilar[i];
+}
+else if (sayilar[i]<enkucuk){
+	enkucuk = sayilar[i];
+}
+}
+console.log(enbuyuk);
+console.log(enkucuk);
+///////
+ ucetambolunenler = [];
+
+sayilar.forEach(function(sayi) {
+  if (sayi % 3 === 0) {
+    ucetambolunenler.push(sayi);
+  }
+});
+console.log(ucetambolunenler);
+ucebolunenlerintoplami = ucetambolunenler.reduce((a,b)=> a+b, 0);
+console.log(ucebolunenlerintoplami);
+///////
+besyuzdenkucuksayilar = sayilar.filter(a=> a<500);
+console.log(besyuzdenkucuksayilar);
+siralisayilar =  besyuzdenkucuksayilar.sort(function(a, b){return a - b});
+console.log(siralisayilar);
+///////
+tekraredensayilar = sayilar.reduce((a,b) => {
+        if (b in a  ){
+			a[b]++
+		}
+       else {
+		a[b]=1
+	   }
+return a;
+} , {});
+console.log(tekraredensayilar);
+/////
+
 /*  (oto test yok) sayilar dizisi içinde kaç adet sayı olduğunu konsola yazdırın */
 
 
